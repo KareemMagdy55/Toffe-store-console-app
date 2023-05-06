@@ -1,0 +1,53 @@
+chocolate
+1
+sweets
+3
+9.98 $
+
+candies
+2
+sweets
+5
+5.99 $
+
+cookies
+3
+snacks
+2
+3.49 $
+
+potato chips
+4
+snacks
+7
+2.99 $
+ice cream
+5
+frozen desserts
+4
+6.79 $
+caramel popcorn
+6
+snacks
+3
+4.99 $
+gummy bears
+7
+sweets
+6
+4.29 $
+fruit snacks
+8
+sweets
+8
+3.99 $
+granola bars
+9
+snacks
+4
+4.49 $
+lollipops
+10
+sweets
+2
+1.99 $

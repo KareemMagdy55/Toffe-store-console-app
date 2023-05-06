@@ -1,0 +1,60 @@
+1
+John Smith
+01123456789
+25 Main St, Cairo, Egypt
+john.smith@email.com
+P@ssw0rd
+2
+Jane Doe
+01512345678
+18 Oxford St, London, UK
+jane.doe@email.com
+d0eP@ssword
+3
+Mark Johnson
+01234567890
+4 Elm St, New York, USA
+mark.johnson@email.com
+j0hnS0n
+4
+Sarah Lee
+01198765432
+10 Rue de Rivoli, Paris, France
+sarah.lee@email.com
+L33S@rrah
+5
+Ali Ahmed
+01221234567
+13 Salah Salem St, Cairo, Egypt
+ali.ahmed@email.com
+Aa123456
+6
+Maria Garcia
+01509876543
+29 Calle de Alcala, Madrid, Spain
+maria.garcia@email.com
+M@r14Garc1a
+7
+Mohammed Khalid
+01011223344
+123 King Abdulaziz Rd, Riyadh, Saudi Arabia
+mohammed.khalid@email.com
+M0Khalid
+8
+Kim Soo-hyun
+01098765432
+17 Gangnam-daero, Seoul, South Korea
+kim.soohyun@email.com
+K1mS00hyun
+9
+Lisa Nguyen
+01234567123
+789 Nguyen Hue, Ho Chi Minh City, Vietnam
+lisa.nguyen@email.com
+Nguy3nL1sa
+10
+Miguel Rodriguez
+01598765432
+62 Gran Via, Madrid, Spain
+miguel.rodriguez@email.com
+R0dr1gu3zM
