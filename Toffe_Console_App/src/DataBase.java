@@ -4,11 +4,12 @@ import java.util.*;
 public class DataBase {
     public ArrayList<Customer> customers = new ArrayList<Customer>();
     public ArrayList<Product> products = new ArrayList<Product>();
-
+    public ArrayList<Order> orders = new ArrayList<Order>();
 
     public DataBase() throws FileNotFoundException {
         loadCustomers();
         loadProducts();
+
 
     }
     private void loadCustomers() throws FileNotFoundException {
