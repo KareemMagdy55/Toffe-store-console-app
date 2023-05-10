@@ -1,5 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 public class DataBase {
     public ArrayList<Customer> customers = new ArrayList<Customer>();
@@ -42,5 +42,18 @@ public class DataBase {
             products.add(tempProduct);
         }
         Reader.close();
+    }
+    public void saveCustomers() throws IOException {
+        File customersFile = new File("customersDB.txt");
+        Integer fileLen = Math.toIntExact((Files.lines(customersFile.toPath()).count()));
+        fileLen = fileLen/ 6 ;
+
+        for (int i = fileLen ; i < customers.size() - fileLen; i ++){
+            BufferedWriter out = new BufferedWriter(
+                    new FileWriter("customersDB.txt", true));
+
+            out.write(customers.get(i).makeString());
+            out.close();
+        }
     }
 }

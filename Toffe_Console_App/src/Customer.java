@@ -1,12 +1,12 @@
 
 
 public class Customer {
-    private Integer id ;
-    private String name ;
-    private String phoneNo;
-    private String address;
-    private String email;
-    private String password;
+    public Integer id ;
+    public String name ;
+    public String phoneNo;
+    public String address;
+    public String email;
+    public String password;
 
 
     public Customer(Integer id , String name, String phoneNo, String address, String email, String password){
@@ -25,7 +25,14 @@ public class Customer {
         System.out.println("email: " + email );
         System.out.println("password: " + password );
     }
-
+//    public String makeString(){
+//        String customer =toString(id)+'\n'+name+'\n'+phoneNo+'\n'+address+'\n'+email+'\n'+password+'\n';
+//        return toString;
+//    }
+    public String makeString() {
+        String customer =Integer.toString(id)+'\n'+name+'\n'+phoneNo+'\n'+address+'\n'+email+'\n'+password+'\n';
+        return customer;
+    }
 
 }
 //1
