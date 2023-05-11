@@ -20,6 +20,11 @@ public class Product {
         System.out.println("quantity: " + quantity );
         System.out.println("price: " + price + "$");
     }
+    public String getName()
+    {
+        return name;
+    }
+
 }
 //lollipops
 //        10
