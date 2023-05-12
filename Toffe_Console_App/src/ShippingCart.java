@@ -1,6 +1,7 @@
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ShippingCart {
@@ -10,7 +11,7 @@ public class ShippingCart {
         int pid, choice;
         OrderedProduct chosenProduct;
         if (products.isEmpty()) {
-            System.out.println("Empty Shipping Cart, Go Buy Smth!");
+            System.out.println("Empty Shipping Cart, Go Buy Something!");
             return;
         }
         System.out.println("This is the list of products in Shipping Cart:");
@@ -18,7 +19,7 @@ public class ShippingCart {
         pid = chooseProductID();
         // User Pressed Exit
         if (pid == -1) return;
-        chosenProduct = findProduct(pid);
+        chosenProduct = findProduct(String.valueOf(pid));
         choice = chooseChoice();
         if (choice == 1) {
             assert chosenProduct != null;
@@ -30,9 +31,9 @@ public class ShippingCart {
             assert chosenProduct != null;
             chosenProduct.decreaseOrderedQuantity();
             if (chosenProduct.getOrderedQuantity() == 0)
-                removeItem(pid);
+                removeItem(String.valueOf(pid));
         } else if (choice == 3) {
-            removeItem(pid);
+            removeItem(String.valueOf(pid));
         } else if (choice == 4) {
 //            placeOrder();
         } else {
@@ -57,7 +58,7 @@ public class ShippingCart {
                 if (pid == -1) {
                     return pid;
                 }
-                chosenProduct = findProduct(pid);
+                chosenProduct = findProduct(String.valueOf(pid));
             } catch (Exception ignored) {
             }
         }
@@ -88,9 +89,9 @@ public class ShippingCart {
         return choice;
     }
 
-    private OrderedProduct findProduct(int pid) {
+    private OrderedProduct findProduct(String pid) {
         for (OrderedProduct p : products) {
-            if (pid == p.getID())
+            if (Objects.equals(pid, p.getID()))
                 return p;
         }
         return null;
@@ -105,7 +106,7 @@ public class ShippingCart {
 
     public boolean addToCart(Product prod) {
         for (OrderedProduct p : products) {
-            if (p.getID() == prod.getID())
+            if (Objects.equals(p.getID(), prod.getID()))
                 return p.increaseOrderedQuantity();
         }
         if (prod.getQuantity() >= 1) {
@@ -115,9 +116,9 @@ public class ShippingCart {
         return false;
     }
 
-    private void removeItem(int pid) {
+    private void removeItem(String pid) {
         for (OrderedProduct p : products) {
-            if (pid == p.getID()) {
+            if (Objects.equals(pid, p.getID())) {
                 products.remove(p);
                 return;
             }

@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class Register {
     Customer customer;
-    private static int counter = 11;
+    private static Integer counter = 11;
 
 
     Register(){
         counter ++ ;
-        customer.id = counter;
+        customer.id = Integer.toString(counter);
     }
     public void setName(){
         Scanner scan = new Scanner(System.in);

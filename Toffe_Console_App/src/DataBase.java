@@ -41,7 +41,7 @@ public class DataBase {
         while (Reader.hasNextLine()) {
             Product tempProduct = new Product(
                     Reader.nextLine(),
-                    Integer.parseInt(Reader.nextLine()),
+                    Reader.nextLine(),
                     Reader.nextLine(),
                     Integer.parseInt(Reader.nextLine()),
                     Float.parseFloat(Reader.nextLine())
@@ -81,7 +81,7 @@ public class DataBase {
             for (int i = 0; i < numberOfOrderedProducts; i++) {
                 prodId = in.nextInt();
                 quntity = in.nextInt();
-                orderedProducts.add(new OrderedProduct(Objects.requireNonNull(getProductByID(prodId)), quntity));
+                orderedProducts.add(new OrderedProduct(Objects.requireNonNull(getProductByID(String.valueOf(prodId))), quntity));
             }
             totalPrice = in.nextDouble();
             status = in.nextInt();
@@ -102,9 +102,9 @@ public class DataBase {
         writer.close();
     }
 
-    private Product getProductByID(int pid) {
+    private Product getProductByID(String pid) {
         for (Product p : products) {
-            if (p.getID() == pid)
+            if (Objects.equals(p.getID(), pid))
                 return p;
         }
         return null;

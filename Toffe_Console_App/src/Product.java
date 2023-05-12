@@ -1,11 +1,11 @@
 public class Product {
-    private int id ;
+    private String id ;
     private String name ;
     private String category ;
     private int quantity;
     private float price;
 
-    public int getID() {
+    public String  getID() {
         return id;
     }
 
@@ -21,9 +21,9 @@ public class Product {
         return price;
     }
 
-    public Product(String name, int id, String category, int quantity, float price){
-        this.name = name;
+    public Product(String name, String id, String category, int quantity, float price){
         this.id = id ;
+        this.name = name;
         this.category = category;
         this.quantity = quantity;
         this.price = price ;
