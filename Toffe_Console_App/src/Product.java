@@ -1,9 +1,9 @@
 public class Product {
-    private String id ;
-    private String name ;
-    private String category ;
-    private int quantity;
-    private float price;
+    private final String id ;
+    private final String name ;
+    private final String category ;
+    private final int quantity;
+    private final float price;
 
     public String  getID() {
         return id;

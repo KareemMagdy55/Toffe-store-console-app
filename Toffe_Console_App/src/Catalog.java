@@ -17,7 +17,7 @@ public class Catalog extends DataBase {
                 f = true;
             }
         }
-        if (f == false)
+        if (!f)
             System.out.println("We don't have this product in our store, sorry");
     }
 

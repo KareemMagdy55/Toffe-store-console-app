@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ShippingCart {
-    private ArrayList<OrderedProduct> products = new ArrayList<OrderedProduct>();
+    private final ArrayList<OrderedProduct> products = new ArrayList<OrderedProduct>();
     public void userInteract() {
         Scanner in = new Scanner(System.in);
         int pid, choice;

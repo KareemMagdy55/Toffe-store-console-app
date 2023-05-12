@@ -44,7 +44,7 @@ public class Customer {
      @param email The email of the customer.
      @param password The password of the customer.
      */
-    public Customer(Integer id, String name, String phoneNo, String address, String email, String password) {
+    public Customer(String id, String name, String phoneNo, String address, String email, String password) {
         this.id = id;
         this.name = name;
         this.phoneNo = phoneNo;

@@ -12,7 +12,7 @@ public class Main {
 //        return;
         DataBase DB = new DataBase();
         String str = (DB.customers.get(3).makeString());
-        DB.customers.add(new Customer(11, "Youssef",
+        DB.customers.add(new Customer("11", "Youssef",
                 "0100", "ad123", "@gmail", "pass"));
         DB.saveCustomers();
         DB.products.get(3).printProduct();
