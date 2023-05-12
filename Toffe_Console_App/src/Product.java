@@ -1,12 +1,27 @@
 public class Product {
+    private int id ;
     private String name ;
-    private String id ;
     private String category ;
+    private int quantity;
+    private float price;
 
-    private Integer quantity;
-    private Float price;
+    public int getID() {
+        return id;
+    }
 
-    public Product(String name, String id, String category, Integer quantity, Float price){
+    public String getCategory() {
+        return category;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public Product(String name, int id, String category, int quantity, float price){
         this.name = name;
         this.id = id ;
         this.category = category;
@@ -14,20 +29,15 @@ public class Product {
         this.price = price ;
     }
     public void printProduct(){
-        System.out.println("name: " + name );
-        System.out.println("id: " + id );
-        System.out.println("category: " + category );
-        System.out.println("quantity: " + quantity );
-        System.out.println("price: " + price + "$");
+        System.out.println("Product ID: " + id );
+        System.out.println("Name: " + name );
+        System.out.println("Category: " + category );
+        System.out.println("Price: " + price + "$");
+        System.out.println("Available Quantity: " + quantity );
     }
     public String getName()
     {
         return name;
     }
-
 }
-//lollipops
-//        10
-//        sweets
-//        2
-//        1.99 $
+
