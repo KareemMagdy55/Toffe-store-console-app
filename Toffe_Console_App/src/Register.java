@@ -4,16 +4,18 @@
  */
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 public class Register {
     Customer customer;
-    private static int counter = 11;
+    DataBase db;
     /**
      * Creates a new instance of Register and increments the counter to assign a new ID to the customer.
      */
-    Register(){
-        counter ++ ;
-        customer.id = Integer.toString(counter);
+    Register() throws FileNotFoundException {
+        db = new DataBase();
+        customer = new Customer();
+        customer.id = String.valueOf(db.getLargestCustomerID() + 1);
     }
 
     /**
@@ -21,12 +23,10 @@ public class Register {
      */
     public void setName(){
         Scanner scan = new Scanner(System.in);
-
         customer.name = scan.nextLine();
-        String nameRegex = "^[a-zA-Z]+$"; // check whether it contains spaces or not ;
-
+        String nameRegex = "^[a-zA-Z]+([\\s][a-zA-Z]+)*$";
         while (!customer.name.matches(nameRegex)){
-            System.out.println("Name is invalid (it contains spaces) , please enter a new one : ");
+            System.out.println("Invalid name, please enter a new one : ");
             customer.name = scan.nextLine();
         }
     }
@@ -36,15 +36,24 @@ public class Register {
      */
     public void setEmail(){
         Scanner scan = new Scanner(System.in);
-
+        OTP otp = new OTP();
+        String userCode;
         customer.email = scan.nextLine();
-        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,}$"; // example@website.com
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
         while (!customer.email.matches(emailRegex)){
             System.out.println("Email is invalid (e.g. example@website.com) , please enter a new one : ");
             customer.email= scan.nextLine();
         }
-
+        System.out.println("Please wait OTP is being sent to your email..");
+//        otp.send(customer.email);
+        System.out.print("Please enter your OTP code: ");
+        userCode = scan.nextLine();
+        while(!Objects.equals(userCode, "123")){ // replace "123" with otp.getCode()
+            System.out.println("Wrong OTP!");
+            System.out.print("Enter your OTP code:");
+            userCode = scan.nextLine();
+        }
     }
 
     /**
@@ -54,7 +63,7 @@ public class Register {
         Scanner scan = new Scanner(System.in);
 
         customer.phoneNo = scan.nextLine();
-        String phoneRegex = "^(011|012|010|015)\\\\w{8}$"; // example@website.com
+        String phoneRegex = "01[0-9]{9}"; // example@website.com
 
         while (!customer.phoneNo.matches(phoneRegex)){
             System.out.println("phone number is invalid (e.g 01150225864) , please enter a new one : ");
@@ -70,12 +79,12 @@ public class Register {
         Scanner scan = new Scanner(System.in);
 
         customer.address = scan.nextLine();
-        String addressRegex = "^[\\\\w\\\\s]+, [\\\\w\\\\s]+, [\\\\w\\\\s]+$"; // Cit, street, homeNo
+//        String addressRegex = "^[\\\\w]+,[\\\\w]+,[\\\\w]+$"; // Cit,street,homeNo
 
-        while (!customer.address.matches(addressRegex)){
-            System.out.println("Address is invalid (e.g Giza, dokki, 123), please enter a new one : ");
-            customer.address= scan.nextLine();
-        }
+//        while (!customer.address.matches(addressRegex)){
+//            System.out.println("Address is invalid (e.g Giza,dokki,123), please enter a new one : ");
+//            customer.address= scan.nextLine();
+//        }
 
     }
 
@@ -102,7 +111,6 @@ public class Register {
      * @throws FileNotFoundException if the database file is not found.
      */
     public void saveCustomer() throws FileNotFoundException {
-        DataBase db  = new DataBase();
         db.customers.add(customer);
         try {
             db.saveCustomers();
@@ -111,4 +119,11 @@ public class Register {
         }
     }
 
+    public String getName(){
+        return customer.name;
+    }
+
+    public String getPass(){
+        return customer.password;
+    }
 }

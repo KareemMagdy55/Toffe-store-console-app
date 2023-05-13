@@ -1,13 +1,13 @@
+import java.io.IOException;
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class ShippingCart {
     private final ArrayList<OrderedProduct> products = new ArrayList<OrderedProduct>();
-    public void userInteract() {
-        Scanner in = new Scanner(System.in);
+    double totalPrice;
+
+    public void userInteract(int custId, DataBase db) throws IOException {
+        updateTotalPrice();
         int pid, choice;
         OrderedProduct chosenProduct;
         if (products.isEmpty()) {
@@ -18,7 +18,13 @@ public class ShippingCart {
         showCart();
         pid = chooseProductID();
         // User Pressed Exit
-        if (pid == -1) return;
+        if (pid == -1)
+            return;
+        else if(pid == -2) {
+            placeOrderToDB(custId, db);
+            userInteract(custId, db);
+            return;
+        }
         chosenProduct = findProduct(String.valueOf(pid));
         choice = chooseChoice();
         if (choice == 1) {
@@ -34,35 +40,55 @@ public class ShippingCart {
                 removeItem(String.valueOf(pid));
         } else if (choice == 3) {
             removeItem(String.valueOf(pid));
-        } else if (choice == 4) {
-//            placeOrder();
         } else {
             return;
         }
-        userInteract();
+        userInteract(custId, db);
+    }
+
+    private void placeOrderToDB(int custId, DataBase db) throws IOException {
+        db.addNewOrder(
+                new Order(db.getLargestOrderID() + 1,
+                        custId, new Date(), new ArrayList<>(products),
+                        totalPrice, 1
+                )
+        );
+        System.out.println("Your order has been created successfully");
+    }
+
+    private double updateTotalPrice() {
+        double price = 0;
+        for (OrderedProduct prod : products) {
+            price += prod.getPrice() * prod.getOrderedQuantity();
+        }
+        totalPrice = price;
+        return totalPrice;
     }
 
     private int chooseProductID() {
-        int pid = -2;
+        int pid = -3;
         boolean firstIterate = true;
         Scanner in = new Scanner(System.in);
         OrderedProduct chosenProduct = null;
-        System.out.print("Choose Product ID (or -1 to exit): ");
+        System.out.println("Choose Product ID:");
+        System.out.println("(-1 to exit or -2 to create order)");
         while (chosenProduct == null) {
-            if (!firstIterate)
+            if (!firstIterate) {
                 System.out.println("Invalid Product ID, Try Again:");
+                System.out.println("(-1 to exit or -2 to create order)");
+            }
             else
                 firstIterate = false;
             try {
                 pid = in.nextInt();
-                if (pid == -1) {
+                if (pid == -1 || pid == -2) {
                     return pid;
                 }
                 chosenProduct = findProduct(String.valueOf(pid));
             } catch (Exception ignored) {
+                in.nextLine();
             }
         }
-        in.close();
         return pid;
     }
 
@@ -73,20 +99,8 @@ public class ShippingCart {
         System.out.println("1. Increase Quantity");
         System.out.println("2. Decrease Quantity");
         System.out.println("3. Delete Item");
-        System.out.println("4. Create Order");
         System.out.println("0. Exit");
-        while (choice > 4 || choice < 0) {
-            if (!firstIterate)
-                System.out.println("Invalid Product ID, Try Again:");
-            else
-                firstIterate = false;
-            try {
-                choice = in.nextInt();
-            } catch (Exception ignored) {
-            }
-        }
-        in.close();
-        return choice;
+        return Validator.takeIntChoice(0, 3);
     }
 
     private OrderedProduct findProduct(String pid) {
@@ -102,6 +116,7 @@ public class ShippingCart {
             p.printProduct();
             System.out.println("_".repeat(50));
         }
+        System.out.println("Total Price = " + totalPrice);
     }
 
     public boolean addToCart(Product prod) {

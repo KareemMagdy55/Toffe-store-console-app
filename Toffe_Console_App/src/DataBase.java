@@ -13,21 +13,21 @@ public class DataBase {
     /** An ArrayList of all the orders in the database. */
     public ArrayList<Order> orders = new ArrayList<Order>();
     /** The largest order ID in the database. */
-    private static int largestOrderID;
+    private int largestOrderID, largestCustomerID;
 
     /**
      * Gets the largest order ID in the database.
      *
      * @return the largest order ID in the database
      */
-    public static int getLargestOrderID() {
+    public int getLargestOrderID() {
         return largestOrderID;
     }
 
     /**
      * Increases the largest order ID in the database by 1.
      */
-    public static void increaseLargestOrderID() {
+    public void increaseLargestOrderID() {
         largestOrderID++;
     }
 
@@ -47,9 +47,10 @@ public class DataBase {
      *
      * @throws FileNotFoundException if the customersDB.txt file is not found
      */
-    private void loadCustomers() throws FileNotFoundException {
+    public void loadCustomers() throws FileNotFoundException {
         File customersFile = new File("customersDB.txt");
         Scanner Reader = new Scanner(customersFile);
+        largestCustomerID = -1;
         while (Reader.hasNextLine()) {
             Customer tempCustomer = new Customer(
                     Reader.nextLine(),
@@ -60,10 +61,14 @@ public class DataBase {
                     Reader.nextLine()
             );
             customers.add(tempCustomer);
+            largestCustomerID = Math.max(largestCustomerID, Integer.parseInt(tempCustomer.id));
         }
         Reader.close();
     }
 
+    public int getLargestCustomerID(){
+        return largestCustomerID;
+    }
     /**
      * Loads the products from the productsDB.txt file into the database.
      *
@@ -114,6 +119,7 @@ public class DataBase {
      * @throws FileNotFoundException if the orders file cannot be found
      */
     public void loadOrders() throws FileNotFoundException {
+        if(!orders.isEmpty()) orders.clear();
         File ordersFile = new File("ordersDB.txt");
         Scanner in = new Scanner(ordersFile);
         int orderId, custId, numberOfOrderedProducts, prodId, quntity, status, maxOrderID = -1;
@@ -121,6 +127,7 @@ public class DataBase {
         Date date;
         ArrayList<OrderedProduct> orderedProducts = new ArrayList<OrderedProduct>();
         while (in.hasNextInt()) {
+            in.nextLine();
             orderedProducts.clear();
             orderId = in.nextInt();
             maxOrderID = Math.max(maxOrderID, orderId);
@@ -141,16 +148,21 @@ public class DataBase {
         in.close();
     }
 
+    public void addNewOrder(Order order) throws IOException {
+        orders.add(order);
+        increaseLargestOrderID();
+        saveOrders();
+    }
+
     /**
      * Saves orders data to a text file.
      *
      * @throws IOException if an I/O error occurs while writing to the file
      */
     public void saveOrders() throws IOException {
-        File ordersFile = new File("ordersDB.txt");
-        int fileLen = Math.toIntExact(Files.lines(ordersFile.toPath()).count());
-        BufferedWriter writer = new BufferedWriter(new FileWriter("ordersDB", true));
-        for (int i = fileLen; i < orders.size(); i++) {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("ordersDB.txt", false));
+        for (int i = 0; i < orders.size(); i++) {
+            writer.write("\n");
             writer.write(orders.get(i).toString());
         }
         writer.close();
@@ -168,6 +180,10 @@ public class DataBase {
                 return p;
         }
         return null;
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
     }
 }
 

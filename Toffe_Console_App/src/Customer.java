@@ -34,6 +34,10 @@ public class Customer {
      The password of the customer.
      */
     public String password;
+
+    public Customer(){
+        ;
+    }
     /**
 
      Creates a new instance of the Customer class with the specified id, name, phone number, address, email, and password.
@@ -71,5 +75,11 @@ public class Customer {
      */
     public String makeString() {
         return id + '\n' + name + '\n' + phoneNo + '\n' + address + '\n' + email + '\n' + password + '\n';
+    }
+    public String getName(){
+        return name;
+    }
+    public int getID(){
+        return Integer.parseInt(id);
     }
 }

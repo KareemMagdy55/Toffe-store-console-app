@@ -3,7 +3,7 @@ public class OrderedProduct extends Product{
     public int getOrderedQuantity(){
         return orderedQuantity;
     }
-    public OrderedProduct(String name, int id, String category, int quantity, float price, int orderedQuantity) {
+    public OrderedProduct(String name, String id, String category, int quantity, float price, int orderedQuantity) {
         super(name, id, category, quantity, price);
         this.orderedQuantity = orderedQuantity;
     }
@@ -17,6 +17,7 @@ public class OrderedProduct extends Product{
         System.out.println("Ordered Quantity: " + orderedQuantity);
         System.out.println("Category: " + getCategory() );
         System.out.println("Price: " + getPrice() + "$");
+        System.out.println("Total Price: " + getPrice() * orderedQuantity + "$");
     }
     public boolean increaseOrderedQuantity(){
         if (orderedQuantity == getQuantity())

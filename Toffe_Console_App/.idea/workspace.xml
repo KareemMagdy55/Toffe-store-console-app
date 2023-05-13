@@ -8,14 +8,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12c4e490-8016-4084-8ef1-33116ab103b7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_activation_10_0_b28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OTP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OrderHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ToffeeApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Toffe_Console_App.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Toffe_Console_App.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customersDB.txt" beforeDir="false" afterPath="$PROJECT_DIR$/customersDB.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordersDB.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ordersDB.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/Catalog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/Catalog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/OrderedProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/OrderedProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Toffe_Console_App/ShippingCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Toffe_Console_App/ShippingCart.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Catalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catalog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrderedProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderedProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShippingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShippingCart.java" afterDir="false" />
     </list>
@@ -46,6 +67,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
@@ -88,5 +110,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
