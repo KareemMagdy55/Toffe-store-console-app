@@ -7,20 +7,20 @@ Uses JavaMail API to send email messages and requires a valid Gmail account cred
  * Sends a verification code via email to the specified email address.
  * @param recipientEmail email address of the user to receive the verification code.
  */
-import javax.mail.;
-import javax.activation.;
+import javax.mail.*;
+import javax.activation.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.;
+import java.util.*;
 public class OTP {
 private String code;
 public void send(String recipientEmail){
     generateCode();
-    System.out.println(code);
+//    System.out.println(code);
     // Sender's email address
-    String senderEmail = "youssefmohammed747@gmail.com";
+    String senderEmail = "kareemmagdy1175@gmail.com";
     // Sender's email password
-    String password = "ufqofiivgclmvxdc";
+    String password = "ykotjowwpufxinlw";
     // Email subject
     String subject = "Verify your Email in TOFFEE";
     // Email message

@@ -1,6 +1,8 @@
 /**
  * Represents an order placed by a customer.
  */
+import java.util.ArrayList;
+import java.util.Date;
 public class Order {
     private final int id; // the unique identifier of the order
     private final int customerID; // the unique identifier of the customer who placed the order

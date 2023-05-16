@@ -46,10 +46,10 @@ public class Register {
             customer.email= scan.nextLine();
         }
         System.out.println("Please wait OTP is being sent to your email..");
-//        otp.send(customer.email);
+        otp.send(customer.email);
         System.out.print("Please enter your OTP code: ");
         userCode = scan.nextLine();
-        while(!Objects.equals(userCode, "123")){ // replace "123" with otp.getCode()
+        while(!Objects.equals(userCode, otp.getCode())){ 
             System.out.println("Wrong OTP!");
             System.out.print("Enter your OTP code:");
             userCode = scan.nextLine();
@@ -79,12 +79,6 @@ public class Register {
         Scanner scan = new Scanner(System.in);
 
         customer.address = scan.nextLine();
-//        String addressRegex = "^[\\\\w]+,[\\\\w]+,[\\\\w]+$"; // Cit,street,homeNo
-
-//        while (!customer.address.matches(addressRegex)){
-//            System.out.println("Address is invalid (e.g Giza,dokki,123), please enter a new one : ");
-//            customer.address= scan.nextLine();
-//        }
 
     }
 
